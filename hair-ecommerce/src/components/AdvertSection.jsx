@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./advert.css";
 const AdvertSection = () => {
   return (
     <section className="advert-section">
@@ -13,31 +13,41 @@ const AdvertSection = () => {
           
           {/* Right Side - White Background */}
           <div className="advert-white-side">
-            {/* Empty div for white background - content is in the middle card */}
+            {/* White background area */}
           </div>
           
           {/* Middle Card - Overlapping Both */}
           <div className="advert-card-middle">
-            <span className="advert-date">Limited Time Offer</span>
+            <div className="card-header">
+              <svg className="clock-icon" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="advert-date">Limited Time Offer</span>
+            </div>
             
             <h2 className="advert-title">
-              Premium <span>Hair</span>
+              Premium <span className="highlight">Hair</span>
+              <svg className="title-underline" viewBox="0 0 200 10" fill="none">
+                <path d="M5 5C65 5, 135 5, 195 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </h2>
             
             <p className="advert-text">
               Discover premium quality hair crafted for elegance, confidence
               and timeless beauty. Elevate your look with Luxe-By-Mo.
             </p>
-            
-            <div className="advert-discount">50% OFF</div>
+
             
             <button className="advert-btn">
-              Shop Now <span className="advert-btn-icon">→</span>
+              <span>Shop Now</span>
+              <svg className="arrow-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
           </div>
         </div>
-        
-      
       </div>
     </section>
   );

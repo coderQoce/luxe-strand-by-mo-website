@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar'; 
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -54,15 +54,48 @@ function App() {
   };
 
   const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <Router>
       <div className="App">
-        <Navbar cartCount={cart.length} onCartClick={() => setIsCartOpen(true)} />
+     
         
         <Routes>
-          <Route path="/" element={<Home addToCart={addToCart} />} />
-          <Route path="/products" element={<Products addToCart={addToCart} />} />
+          <Route 
+            path="/" 
+            element={
+              <Home 
+                addToCart={addToCart}
+                cart={cart}
+                cartCount={cartCount}
+                isCartOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen}
+                removeFromCart={removeFromCart}
+                updateQuantity={updateQuantity}
+                clearCart={clearCart}
+                cartTotal={cartTotal}
+              />
+            } 
+          />
+          
+          <Route 
+            path="/products" 
+            element={
+              <Products 
+                addToCart={addToCart}
+                cart={cart}
+                cartCount={cartCount}
+                isCartOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen}
+                removeFromCart={removeFromCart}
+                updateQuantity={updateQuantity}
+                clearCart={clearCart}
+                cartTotal={cartTotal}
+              />
+            } 
+          />
+          
           <Route 
             path="/product/:id" 
             element={<ProductDetail addToCart={addToCart} />} 

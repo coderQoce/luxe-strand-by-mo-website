@@ -1,0 +1,73 @@
+.brand-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.brand-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Slider container */
+.logo-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Track that moves */
+.logo-track {
+  display: flex;
+  width: calc(200px * 12);
+  animation: scroll 25s linear infinite;
+}
+
+/* Individual logo */
+.logo-item {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.logo-item img {
+  max-width: 140px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-item {
+    width: 150px;
+  }
+
+  .logo-item img {
+    max-width: 110px;
+  }
+}
